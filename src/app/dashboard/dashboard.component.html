@@ -1,0 +1,23 @@
+<div class="dashboard p-shadow-24">
+
+    <div class="p-grid p-ai-center vertical-container">
+        <div class="p-col-12 p-md-6 p-lg-6 logo">
+            <p>
+                <span style="font-size: 35px;">
+                    {{title}}
+                </span><br />
+                <span style="font-size: 20px;">
+                    {{subtitle}}
+                </span>
+            </p>
+        </div>
+        <div class="p-col-12 p-md-6 p-lg-6">
+            <app-unavailability></app-unavailability>
+        </div>
+    </div>
+    <div class="p-grid p-ai-center vertical-container">
+        <div class="p-col">
+            <app-services-status></app-services-status>
+        </div>
+    </div>
+</div>

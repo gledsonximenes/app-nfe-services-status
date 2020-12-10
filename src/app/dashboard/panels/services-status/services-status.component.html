@@ -1,0 +1,102 @@
+<p-panel header="Status dos serviços de nota fiscal eletrônica por estado." styleClass="panel-status">
+
+        <div class="p-fluid p-grid p-formgrid">
+                <div class="p-field p-col-12 p-md-6">
+                        <p-dropdown [(ngModel)]="state" [options]="states" placeholder="Filtro por estado ou serviço"
+                                [filter]="true" filterBy="name" optionLabel="name" [showClear]="true"
+                                (onChange)="getCurrentStatusServicesNfeByState($event)">
+                        </p-dropdown>
+                </div>
+                <div class="p-field p-col-12 p-md-6">
+                        <p-calendar [(ngModel)]="date" dateFormat="dd-mm-yy" inputId="basic"
+                                placeholder="Filtro por data" (onSelect)="getCurrentStatusServicesNfeByDate($event)"
+                                icon="pi pi-calendar"></p-calendar>
+                </div>
+        </div>
+
+        <p-table [value]="data" [paginator]="true" [rows]="15" [totalRecords]="totalData"
+                styleClass="p-datatable-responsive-style">
+                <ng-template pTemplate="header">
+                        <tr>
+                                <th>Data e Hora</th>
+                                <th>AUTORIZADOR</th>
+                                <th>AUTORIZAÇÃO4</th>
+                                <th>RETORNO AUTORIZAÇÃO4</th>
+                                <th>INUTILIZAÇÃO4</th>
+                                <th>CONSULTA PROTOCOLO4</th>
+                                <th>STATUS SERVIÇO4</th>
+                                <th>TEMPO MÉDIO</th>
+                                <th>CONSULTA CADASTRO4</th>
+                                <th>RECEPÇÃO EVENTO4</th>
+                        </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-data>
+                        <tr>
+
+                                <td style="color: #9FA8DA; font-weight: bold;">{{data.creationDate | formatDateTime}}</td>
+
+                                <td style="color: #9FA8DA; font-weight: bold;">{{data.state}}</td>
+
+                                <td *ngIf='data.authorization == "GREEN"' style="color: green;"><i class="pi pi-check"
+                                                style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.authorization == "YELLOW"' style="color: yellow;"><i
+                                                class="pi pi-exclamation-triangle" style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.authorization == "RED"' style="color: red;"><i class="pi pi-times"
+                                                style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.authorization == null'></td>
+
+                                <td *ngIf='data.returnAuthorization == "GREEN"' style="color: green;"><i
+                                                class="pi pi-check" style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.returnAuthorization == "YELLOW"' style="color: yellow;"><i
+                                                class="pi pi-exclamation-triangle" style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.returnAuthorization == "RED"' style="color: red;"><i class="pi pi-times"
+                                                style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.returnAuthorization == null'></td>
+
+                                <td *ngIf='data.disable == "GREEN"' style="color: green;"><i class="pi pi-check"
+                                                style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.disable == "YELLOW"' style="color: yellow;"><i
+                                                class="pi pi-exclamation-triangle" style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.disable == "RED"' style="color: red;"><i class="pi pi-times"
+                                                style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.disable == null'></td>
+
+                                <td *ngIf='data.protocolConsultation == "GREEN"' style="color: green;"><i
+                                                class="pi pi-check" style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.protocolConsultation == "YELLOW"' style="color: yellow;"><i
+                                                class="pi pi-exclamation-triangle" style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.protocolConsultation == "RED"' style="color: red;"><i
+                                                class="pi pi-times" style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.protocolConsultation == null'></td>
+
+                                <td *ngIf='data.statusService == "GREEN"' style="color: green;"><i class="pi pi-check"
+                                                style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.statusService == "YELLOW"' style="color: yellow;"><i
+                                                class="pi pi-exclamation-triangle" style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.statusService == "RED"' style="color: red;"><i class="pi pi-times"
+                                                style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.statusService == null'></td>
+
+                                <td>{{data.averageTime}}</td>
+
+                                <td *ngIf='data.queryRegister == "GREEN"' style="color: green;"><i class="pi pi-check"
+                                                style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.queryRegister == "YELLOW"' style="color: yellow;"><i
+                                                class="pi pi-exclamation-triangle" style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.queryRegister == "RED"' style="color: red;"><i class="pi pi-times"
+                                                style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.queryRegister == null'></td>
+
+                                <td *ngIf='data.receptionEvent == "GREEN"' style="color: green;"><i class="pi pi-check"
+                                                style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.receptionEvent == "YELLOW"' style="color: yellow;"><i
+                                                class="pi pi-exclamation-triangle" style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.receptionEvent == "RED"' style="color: red;"><i class="pi pi-times"
+                                                style="font-size: 2rem"></i></td>
+                                <td *ngIf='data.receptionEvent == null'></td>
+
+                        </tr>
+                </ng-template>
+        </p-table>
+
+</p-panel>

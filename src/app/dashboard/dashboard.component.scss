@@ -1,0 +1,27 @@
+.dashboard{
+    margin-left: 10%;
+    margin-right: 10%;
+    border: #9FA8DA 1px solid;
+    background-color: black;
+}
+
+@media screen and (max-width: 40rem) {
+    .dashboard{
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+}
+
+div.logo {
+    height: 10em;
+    position: relative }
+div.logo p {
+    margin: 0;
+    color:white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}

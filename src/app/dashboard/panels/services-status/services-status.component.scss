@@ -1,0 +1,91 @@
+:host ::ng-deep {    
+    .p-datatable-responsive-style .p-datatable-tbody > tr > td .p-column-title {
+        display: none;
+    }
+}
+
+:host ::ng-deep .panel-status.p-panel {
+    .p-panel-header {
+        .p-panel-title{
+            color: #9FA8DA;
+            text-align: center;
+            font-size: 25px;
+        }
+    }
+}
+
+:host ::ng-deep {
+    .p-datatable {
+        &.p-datatable-responsive-style {
+            .p-datatable-thead > tr > th,
+            .p-datatable-thead > tr > th {
+                text-align: center;
+                color: #9FA8DA;
+                border: 1px solid aliceblue;
+            }
+            .p-datatable-tbody > tr > td {
+                text-align: center;
+                border: 1px solid aliceblue;
+
+                .icon-green {
+                    color: greenyellow;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 90rem) {
+    :host ::ng-deep {
+        .p-datatable {
+            &.p-datatable-responsive-style {
+                .p-datatable-thead > tr > th,
+                .p-datatable-thead > tr > th {
+                    overflow: hidden;
+                    max-width: 75ch;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 40rem) {
+    :host ::ng-deep {
+        .p-datatable {
+            &.p-datatable-responsive-style {
+                .p-datatable-thead > tr > th,
+                .p-datatable-tfoot > tr > td {
+                    display: none !important;
+                }
+
+                .p-datatable-thead > tr > th {
+                    white-space: pre-wrap;
+                }
+
+                .p-datatable-tbody > tr > td {
+                    text-align: left;
+                    display: block;
+                    width: 100%;
+                    float: left;
+                    clear: left;
+                    border: 0 none;
+
+                    .p-column-title {
+                        padding: .4rem;
+                        min-width: 30%;
+                        display: inline-block;
+                        margin: -.4em 1em -.4em -.4rem;
+                        font-weight: bold;
+                    }
+
+                    &:last-child {
+                        border-bottom: 1px solid var(--surface-d);
+                    }
+                }
+            }
+        }
+    }
+}
